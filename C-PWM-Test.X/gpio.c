@@ -2,21 +2,23 @@
 #include <xc.h>
 #include "gpio.h"
 
+/* PortA initialization */
 void PortA_Initialize(void)
 {
     /* Clear register */
-    LATA = 0x00;
+    LATA = 0xF0;
     
-    /* RA7:RA0 as digital I/O */
+    /* Pins as digital I/O */
     ANSELA = 0x00;
     
-    /* Disable Rpull-ups */
-    WPUA = 0x00;
+    /* Enable pull-up for RA7:RA4, disable pull-up for RA3:RA0 */
+    WPUA = 0xF0;
         
-    /* RA7:RA0 as outputs */
-    TRISA = 0x00;
+    /* RA7:RA4 as input, RA3:RA0 as output */
+    TRISA = 0xF0;
 }
 
+/* PortB initialization */
 void PortB_Initialize(void)
 {
     /* Clear register */
@@ -25,13 +27,14 @@ void PortB_Initialize(void)
     /* Pins as digital I/O */
     ANSELB = 0x00;
     
-    /* Disable Rpull-ups */
-    WPUB = 0x00;
+    /* Enable pull-up RB4 only, rest disabled */
+    WPUB = 0x10;
         
-    /* PortA as outputs */
-    TRISB = 0x00;
+    /* RB4 as input, rest as output */
+    TRISB = 0x10;
 }
 
+/* PortC initialization */
 void PortC_Initialize(void)
 {
     /* Clear register */
@@ -43,10 +46,11 @@ void PortC_Initialize(void)
     /* Disable Rpull-ups */
     WPUC = 0x00;
         
-    /* PortA as outputs */
+    /* PortC as outputs */
     TRISC = 0x00;
 }
     
+/* PortD initialization */
 void PortD_Initialize(void)
 {
     /* Clear register */
@@ -58,10 +62,11 @@ void PortD_Initialize(void)
     /* Disable Rpull-ups */
     WPUD = 0x00;
         
-    /* PortA as outputs */
+    /* PortD as outputs */
     TRISD = 0x00;
 }
-    
+
+/* PortE initialization */
 void PortE_Initialize(void)
 {
     /* Clear register */
@@ -73,21 +78,22 @@ void PortE_Initialize(void)
     /* Disable Rpull-ups */
     WPUE = 0x00;
         
-    /* PortA as outputs */
+    /* PortE as outputs */
     TRISE = 0x00;
 }    
 
+/* PortF initialization */
 void PortF_Initialize(void)
 {
     /* Clear register */
-    LATF = 0x00;
+    LATF = 0x0F;
     
     /* Pins as digital I/O */
     ANSELF = 0x00;
     
     /* Disable Rpull-ups */
-    WPUF = 0x01;
+    WPUF = 0x00;
         
-    /* PortA as outputs */
-    TRISF = 0x01;
+    /* PortF as outputs */
+    TRISF = 0x00;
 }
