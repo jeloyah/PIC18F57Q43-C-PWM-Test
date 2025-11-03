@@ -3,13 +3,7 @@
 
 /* PWM Initialization */
 void PWM3_Initialize(void) {  
-     
-    /* PWM3S1P1_OUT is connected to RD3 pin */
-    RD3PPS = 0x1C;
-    
-    /* PWM3S1P2_OUT is connected to RD2 pin */
-    RD2PPS = 0x1D;
-    
+         
     /* PWM3 Compare clock source = HFINTOSC */
 	PWM3CLK = 0x03;  
     
@@ -35,5 +29,5 @@ void PWM3_Initialize(void) {
     PWM3S1P2L = 0xC0;
     
      /* PWMC is enabled; reload registers */
-    PWM3CON = 0x80;
+    PWM3CON = 0x84;
 }
