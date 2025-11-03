@@ -1,9 +1,11 @@
 #include <xc.h>
 #include "gpio.h"
 #include "clock.h"
+#include "ioc.h"
 #include "pwm1.h"
 #include "pwm2.h"
 #include "pwm3.h"
+#include "pps.h"
 
 void main(void) {
     
@@ -28,6 +30,9 @@ void main(void) {
     /* Config PortF */
     PortF_Initialize();
       
+    /* Config PPS */
+    PPS_Initialize();
+    
     /* PWM1 compare Initialization */
 	PWM1_Initialize();
     
@@ -37,20 +42,16 @@ void main(void) {
     /* PWM3 compare Initialization */
 	PWM3_Initialize();
     
+    /* Config IOC */
+    IOC_Initialize();
+        
+    /* Enable interrupts */
+    ei();
     
     while(1)
     {
 
-     /* Check if RF0 = 0 */
-     if ((PORTF&0x01) == 0x00)
-     {
-      /* Hard coded reset, since pin MCLR(RE3) is used by debugger */   
-     RESET();
-     }   
-       
-        
-        
-        
+
         
     } /* while */
     

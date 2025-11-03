@@ -4,12 +4,6 @@
 /* PWM Initialization */
 void PWM1_Initialize(void) {  
      
-    /* PWM1S1P1_OUT is connected to RC7 pin */
-    RC7PPS = 0x18;
-    
-    /* PWM1S1P2_OUT is connected to RC6 pin */
-    RC6PPS = 0x19;
-    
     /* PWM1 Compare clock source = HFINTOSC */
 	PWM1CLK = 0x03;  
     
@@ -35,5 +29,5 @@ void PWM1_Initialize(void) {
     PWM1S1P2L = 0x60;
     
      /* PWMC is enabled; reload registers */
-    PWM1CON = 0x80;
+    PWM1CON = 0x84;
 }

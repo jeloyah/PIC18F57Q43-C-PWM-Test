@@ -3,13 +3,7 @@
 
 /* PWM Initialization */
 void PWM2_Initialize(void) {  
-     
-    /* PWM2S1P1_OUT is connected to RB2 pin */
-    RB2PPS = 0x1A;
-    
-    /* PWM2S1P2_OUT is connected to RB1 pin */
-    RB1PPS = 0x1B;
-    
+        
     /* PWM2 Compare clock source = HFINTOSC */
 	PWM2CLK = 0x03;  
     
@@ -35,5 +29,5 @@ void PWM2_Initialize(void) {
     PWM2S1P2L = 0x16;
     
      /* PWMC is enabled; reload registers */
-    PWM2CON = 0x80;
+    PWM2CON = 0x84;
 }
